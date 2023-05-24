@@ -12,6 +12,14 @@
       integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
       crossorigin="anonymous"
     />
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        if (localStorage.temp !== undefined) {
+          location.pathname = localStorage.temp;
+          delete localStorage.temp;
+        }
+      });
+    </script>
   </head>
   <body>
     <div id="app"></div>
@@ -27,13 +35,5 @@
       integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
       crossorigin="anonymous"
     ></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        if (localStorage.temp !== undefined) {
-          location.pathname = localStorage.temp;
-          delete localStorage.temp;
-        }
-      });
-    </script>
   </body>
 </html>
