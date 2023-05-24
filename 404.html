@@ -8,7 +8,9 @@
       if (location.pathname !== "/GoodIdealsLunch/index.html") {
         const temp = location.pathname;
         location.replace("/GoodIdealsLunch/index.html");
-        location.pathname = temp;
+        setTimeout(() => {
+          location.pathname = temp;
+        }, 1000);
       }
     </script>
     <title>Redirecting...</title>
