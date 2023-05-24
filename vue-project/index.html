@@ -28,10 +28,12 @@
       crossorigin="anonymous"
     ></script>
     <script>
-      if (localStorage.temp !== undefined) {
-        location.pathname = localStorage.temp;
-        delete localStorage.temp
-      }
+      document.addEventListener("DOMContentLoaded", () => {
+        if (localStorage.temp !== undefined) {
+          location.pathname = localStorage.temp;
+          delete localStorage.temp;
+        }
+      });
     </script>
   </body>
 </html>
