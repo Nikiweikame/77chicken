@@ -27,5 +27,11 @@
       integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
       crossorigin="anonymous"
     ></script>
+    <script>
+      if (localStorage.temp !== undefined) {
+        location.pathname = localStorage.temp;
+        delete localStorage.temp
+      }
+    </script>
   </body>
 </html>
