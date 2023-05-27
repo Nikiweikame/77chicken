@@ -1,6 +1,7 @@
 <script setup>
 import { useCounterStore } from "@/stores/counter.js";
 
+import { RouterLink, RouterView } from "vue-router";
 const counterStore = useCounterStore();
 function shootOrder() {
   counterStore.loading();
@@ -32,7 +33,7 @@ function clear() {
       </p>
     </div>
     <div class="cart__button">
-      <div class="cart__submit" @click="shootOrder">送出</div>
+      <RouterLink to="/delete" class="cart__submit" @click="shootOrder">送出</RouterLink>
       <div class="cart__clear" @click="clear">清除</div>
     </div>
   </div>
@@ -58,7 +59,7 @@ function clear() {
   &__button {
     display: flex;
     width: 100%;
-    > div {
+    > * {
       text-decoration: none;
       display: block;
       padding: 10px;

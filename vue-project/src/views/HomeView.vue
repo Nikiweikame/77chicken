@@ -27,7 +27,7 @@ const time = ref("");
 function setDeadline(data, time) {
   counterStore.loading();
   const dataArray = [...data.split("-"), ...time.split(":")];
-  console.log(data, time, dataArray);
+  // console.log(data, time, dataArray);
   const content = {
     年: Number(dataArray[0]),
     月: Number(dataArray[1]),
@@ -96,7 +96,7 @@ watch(selected, nowTime);
         >
           團購發起
         </p>
-        <RouterLink
+        <RouterLink v-if="counterStore.countdown !== '訂購時間已截止'"
           type="submit"
           class="col-5 col-lg-2"
           :to="'/order/' + counterStore.menuTypeArray[0]"
@@ -246,6 +246,7 @@ watch(selected, nowTime);
       padding: 10px;
       color: #fff;
       background-color: #60c48f;
+      text-decoration: none;
       &--color {
         background-color: red;
         border: 0;

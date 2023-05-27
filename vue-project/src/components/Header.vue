@@ -21,13 +21,6 @@ const countdown = ref(20);
           <RouterLink to="/update" class="nav-link">新增菜單</RouterLink>
         </li>
         <li class="nav-item">
-          <RouterLink
-            :to="'/order/' + counterStore.menuTypeArray[0]"
-            class="nav-link"
-            >訂購頁面</RouterLink
-          >
-        </li>
-        <li class="nav-item">
           <RouterLink to="/delete" class="nav-link">訂單查訊/刪除</RouterLink>
         </li>
         <li class="nav-item">

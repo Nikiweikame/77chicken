@@ -23,7 +23,7 @@ const counterStore = useCounterStore();
   padding-bottom: 30px;
 }
 .load {
-  position: absolute;
+  position: fixed;
   inset: 0 0 100% 0;
   // inset: 0;
   background-color: #60c48f;

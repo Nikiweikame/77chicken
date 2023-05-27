@@ -6,7 +6,9 @@ export const useCounterStore = defineStore("counter", () => {
     document.querySelector(".load").classList.add("loading");
   }
   function loaded() {
-    document.querySelector(".load").classList.remove("loading");
+    setTimeout(() => {
+      document.querySelector(".load").classList.remove("loading");
+    }, 1000);
   }
   const count = ref(0);
   const doubleCount = computed(() => count.value * 2);
@@ -72,10 +74,8 @@ export const useCounterStore = defineStore("counter", () => {
                 ] = element.fields[i].split("+-+");
               }
             }
-            // console.log(optionObject.value)
           }
         });
-        // console.log(chooseArrayDeleteId.value)
         setMenu(chooses.value);
         loaded();
       })
@@ -270,7 +270,7 @@ export const useCounterStore = defineStore("counter", () => {
               deleteOrderID.value[deleteOrderID.value.length] =
                 result.records[i]["id"];
             }
-            console.log("1223", deleteOrderID.value);
+            // console.log("1223", deleteOrderID.value);
             deleteOrder(deleteOrderID.value);
           }
         }
@@ -522,7 +522,7 @@ export const useCounterStore = defineStore("counter", () => {
     )
       .then((response) => response.text())
       .then((result) => {
-        console.log(result);
+        // console.log(result);
         API();
         loaded();
       })
@@ -564,7 +564,7 @@ export const useCounterStore = defineStore("counter", () => {
     )
       .then((response) => response.text())
       .then((result) => {
-        console.log(result);
+        // console.log(result);
         API();
         getOrderList(true);
         loaded();
