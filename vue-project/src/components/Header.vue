@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from "vue";
-import { useCounterStore } from "@/stores/counter.js";
 import { RouterLink, RouterView } from "vue-router";
+import { useCounterStore } from "@/stores/counter.js";
 
 const counterStore = useCounterStore();
 const countdown = ref(20);
@@ -15,19 +15,23 @@ const countdown = ref(20);
       </div>
       <ul class="nav">
         <li class="nav-item">
-          <a class="nav-link" href="">團購發起</a>
+          <RouterLink to="/" class="nav-link">團購發起</RouterLink>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="">新增菜單</a>
+          <RouterLink to="/update" class="nav-link">新增菜單</RouterLink>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="">訂購頁面</a>
+          <RouterLink
+            :to="'/order/' + counterStore.menuTypeArray[0]"
+            class="nav-link"
+            >訂購頁面</RouterLink
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="">訂單查訊/修改</a>
+          <RouterLink to="/delete" class="nav-link">訂單查訊/刪除</RouterLink>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="">付款清點</a>
+          <RouterLink to="/check" class="nav-link">付款清點</RouterLink>
         </li>
       </ul>
     </div>
@@ -46,9 +50,9 @@ const countdown = ref(20);
     margin-bottom: 16px;
   }
 }
-.nav{
+.nav {
   justify-content: center;
-  &-link{
+  &-link {
     color: #fff;
   }
 }
