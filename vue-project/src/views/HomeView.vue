@@ -12,7 +12,6 @@ function newStart() {
 const newSet = ref(true);
 const selected = ref("");
 function updateMenu(menu) {
-  counterStore.loading();
   counterStore.chooses = menu;
   counterStore.setMenu(menu);
   counterStore.deleteId = counterStore.chooseArrayDeleteId[menu];
@@ -107,7 +106,7 @@ watch(selected, nowTime);
           >查看訂單</RouterLink
         >
       </div>
-      <div v-if="!newSet" class="row gy-3 gx-0">
+      <div v-if="!newSet" class="row gy-3 gx-0 justify-content-center">
         <div class="start__select-title col-6 col-lg-3">請選擇菜單:</div>
         <select class="start__select col-6 col-lg-3" v-model="selected">
           <option disabled value="">請選擇菜單</option>
@@ -142,9 +141,19 @@ watch(selected, nowTime);
             "
           >
             <div class="row g-3 start__setMenu justify-content-center">
-              <div class="start__set-date col-12" v-if="selected !== ''">
-                <input type="date" v-model="data" required />
-                <input type="time" v-model="time" required />
+              <div class="start__set-date py-1 col-12" v-if="selected !== ''">
+                <input
+                  class="start__date"
+                  type="date"
+                  v-model="data"
+                  required
+                />
+                <input
+                  class="start__time"
+                  type="time"
+                  v-model="time"
+                  required
+                />
               </div>
               <div class="col-6 col-lg-3">
                 <RouterLink
@@ -207,16 +216,18 @@ watch(selected, nowTime);
     color: #fff;
     background-color: #60c48f;
     padding: 10px;
-    margin: 0;
+    margin-bottom: 0;
   }
   &__type {
     &-title {
+      font-size: 20px;
       border: 1px solid #000;
       margin: 0;
     }
     &-container {
       display: grid;
       grid-template-columns: 3fr 1fr;
+      font-size: 18px;
       > div {
         border: 1px solid #000;
       }
@@ -242,12 +253,29 @@ watch(selected, nowTime);
       }
     }
   }
+  &__date {
+    font-size: 18px;
+    padding: 10px;
+    margin: 5px;
+  }
+  &__time {
+    font-size: 18px;
+    padding: 10px;
+    margin: 5px;
+  }
 }
 
 @media (min-width: 1024px) {
   .start {
     &__btn-group {
       justify-content: space-around;
+    }
+
+    &__select {
+      font-size: 24px;
+      &-title {
+        font-size: 24px;
+      }
     }
   }
 }
