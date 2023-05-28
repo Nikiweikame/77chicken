@@ -46,7 +46,7 @@ function save() {
   }
   // console.log(data);
   counterStore.updateMenu(data);
-  console.log(counterStore.chooses)
+  console.log(counterStore.chooses);
 }
 function newMeal(index, element, meal) {
   console.log(index, element, meal);
@@ -73,7 +73,7 @@ function deleteMenu() {
     />
     <div
       v-for="(element, index) in counterStore.chooseType"
-      class="row gx-0 mb-3"
+      class="row gx-0 mb-3 update-menu__type-container"
     >
       <div class="col-12 col-lg-3">
         <div class="update-menu__type">
@@ -97,16 +97,18 @@ function deleteMenu() {
         </div>
       </div>
     </div>
-    <div class="col-12 col-lg-3 mb-3">
-      <form @submit.prevent="plusType" class="update-menu__add-type">
-        <input
-          type="text"
-          v-model="temp"
-          placeholder="請輸入分類項目"
-          required
-        />
-        <button type="submit">新增分類</button>
-      </form>
+    <div class="row g-0 update-menu__type-set-new">
+      <div class="col-12 col-lg-3 mb-3">
+        <form @submit.prevent="plusType" class="update-menu__add-type">
+          <input
+            type="text"
+            v-model="temp"
+            placeholder="請輸入分類項目"
+            required
+          />
+          <button type="submit">新增分類</button>
+        </form>
+      </div>
     </div>
     <div class="update-menu__btn-group">
       <button>另存新檔</button>
@@ -172,18 +174,36 @@ function deleteMenu() {
 }
 
 @media (min-width: 992px) {
-  .update-menu__add-type {
-    display: flex;
-    flex-direction: column;
-    // width: 100%;
-    input {
-      width: 100%;
-      height: 60px;
+  .update-menu {
+    &__add-type {
+      display: flex;
+      flex-direction: column;
+      // width: 100%;
+      input {
+        width: 100%;
+        height: 60px;
+      }
+      button {
+        width: 100%;
+        // border: 1px solid #000;
+      }
     }
-    button {
-      width: 100%;
-      // border: 1px solid #000;
+    &__btn-group {
+      display: flex;
+      justify-content: center;
+      button {
+        padding: 10px;
+        font-size: 20px;
+        margin: 30px;
+      }
     }
+  }
+  .update-menu__type-set-new {
+    justify-content: center;
+  }
+  .update-menu__type-container + .update-menu__type-set-new {
+    // font-size: 80px;
+    justify-content: start;
   }
 }
 </style>

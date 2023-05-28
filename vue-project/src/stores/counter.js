@@ -381,7 +381,7 @@ export const useCounterStore = defineStore("counter", () => {
                 }
               }
             }
-            console.log(orderList, orderInfo, totalMeney.value);
+            // console.log(orderList, orderInfo, totalMeney.value);
             otherOrderList.value = [orderList, orderInfo];
           }
         }
