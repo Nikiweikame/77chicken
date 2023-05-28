@@ -90,7 +90,7 @@ watch(selected, nowTime);
       <div class="start__btn-group row gy-3" v-if="newSet">
         <p class="start__title col-12">{{ `歡迎，${counterStore.name}` }}</p>
         <p
-          class="start__new-set col-12 col-lg-2"
+          class="start__new-set col-5 col-lg-2"
           @click="newSet = !newSet"
           v-if="counterStore.countdown === '訂購時間已截止'"
         >
