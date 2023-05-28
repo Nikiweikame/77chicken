@@ -24,7 +24,12 @@ function deleteOrder(id) {
       <div class="orderList__name">{{ element[0] }}</div>
       <div class="orderList__order-data" v-html="element[1]"></div>
       <div class="orderList__options">
-        <button @click="deleteOrder(element[2])">刪除</button>
+        <button
+          @click="deleteOrder(element[2])"
+          v-if="element[0] === counterStore.name"
+        >
+          刪除
+        </button>
       </div>
     </div>
   </div>
